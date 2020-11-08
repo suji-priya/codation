@@ -1,9 +1,8 @@
 {
-    "id":1,
-     "productName":"Liner",
-     "subChildCategory":{
-         "id":2
-     }
-    
-     
+    "id": 4,
+    "productName": "samsung",
+    "subChildCategory": {
+        "id":4,
+        "subChildCategoryName": "TV"
+    }
 }
