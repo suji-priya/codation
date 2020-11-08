@@ -8,15 +8,15 @@
             "sub_ChildCategory": [
                 {
                     "id": 1,
-                    "sub_ChildCategoryName": "Lipstic"
+                    "subChildCategoryName": "Lipstic"
                 },
                 {
                     "id": 2,
-                    "sub_ChildCategoryName": "Liner"
+                    "subChildCategoryName": "Liner"
                 },
                 {
                     "id": 3,
-                    "sub_ChildCategoryName": "BodyLotion"
+                    "subChildCategoryName": "BodyLotion"
                 }
             ]
         },
@@ -26,15 +26,15 @@
             "sub_ChildCategory": [
                 {
                     "id": 4,
-                    "sub_ChildCategoryName": "TV"
+                    "subChildCategoryName": "TV"
                 },
                 {
                     "id": 5,
-                    "sub_ChildCategoryName": "Mixer"
+                    "subChildCategoryName": "Mixer"
                 },
                 {
                     "id": 6,
-                    "sub_ChildCategoryName": "Freez"
+                    "subChildCategoryName": "Freez"
                 }
             ]
         },
@@ -44,15 +44,15 @@
             "sub_ChildCategory": [
                 {
                     "id": 7,
-                    "sub_ChildCategoryName": "Sofa"
+                    "subChildCategoryName": "Sofa"
                 },
                 {
                     "id": 8,
-                    "sub_ChildCategoryName": "Table"
+                    "subChildCategoryName": "Table"
                 },
                 {
                     "id": 9,
-                    "sub_ChildCategoryName": "Chair"
+                    "subChildCategoryName": "Chair"
                 }
             ]
         }
