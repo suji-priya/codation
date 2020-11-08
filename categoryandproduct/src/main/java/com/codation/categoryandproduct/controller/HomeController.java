@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.codation.categoryandproduct.entity.Category;
+import com.codation.categoryandproduct.entity.Product;
 import com.codation.categoryandproduct.homeserviceimpl.ServiceImpl;
 
 @RestController
@@ -44,7 +46,7 @@ public class HomeController {
 
 	}
     @PostMapping("/product")
-	public ResponseEntity<String> addProduct(@RequestBody Category theProduct) {
+	public ResponseEntity<String> addProduct(@RequestBody Product theProduct) {
 
 		if (theProduct != null) {
 
@@ -57,10 +59,10 @@ public class HomeController {
 		return new ResponseEntity<String>("Product Details are MandatoryIt Cannot Be Empty !", HttpStatus.BAD_REQUEST);
 
 	}
-    @GetMapping("/product")
-	public ResponseEntity<Object> getProducts() {
+    @GetMapping("/product/{name}")
+	public ResponseEntity<Object> getProducts(@PathVariable("name") String cName) {
 
-		List<Category> products = serviceImpl.getProducts();
+		List<Product> products = serviceImpl.getProducts(cName);
 
 		return new ResponseEntity<Object>(products, HttpStatus.OK);
 

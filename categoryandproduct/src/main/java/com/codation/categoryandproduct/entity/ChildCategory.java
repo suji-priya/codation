@@ -19,7 +19,7 @@ public class ChildCategory {
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="childCategory_foreign")
-	private List<SubCategory> subChildCategory = new ArrayList();
+	private List<SubChildCategory> subChildCategory = new ArrayList();
 
 	
 	public ChildCategory() {
@@ -34,11 +34,11 @@ public class ChildCategory {
 		this.id = id;
 	}
 
-	public List<SubCategory> getSubChildCategory() {
+	public List<SubChildCategory> getSubChildCategory() {
 		return subChildCategory;
 	}
 
-	public void setSubChildCategory(List<SubCategory> subChildCategory) {
+	public void setSubChildCategory(List<SubChildCategory> subChildCategory) {
 		this.subChildCategory = subChildCategory;
 	}
 	

@@ -10,17 +10,27 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 @Entity
-public class SubCategory {
+public class SubChildCategory {
 	@Id
 	@Column(name = "subCategory_Id")
 	private int id;
     
-	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="subCategory_fireign")
+	private String name;
+	
+	@OneToMany(cascade=CascadeType.ALL, mappedBy = "subChildCategory")
+	
 	private List<Product> product = new ArrayList();
 	
+    
+	public String getName() {
+		return name;
+	}
 
-	public SubCategory() {
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public SubChildCategory() {
 		super();
 	}
 
@@ -45,7 +55,7 @@ public class SubCategory {
 		return "SubCategory [id=" + id + ", product=" + product + "]";
 	}
 
-	public SubCategory(int id, List<Product> product) {
+	public SubChildCategory(int id, List<Product> product) {
 		super();
 		this.id = id;
 		this.product = product;

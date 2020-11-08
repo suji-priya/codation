@@ -7,14 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.codation.categoryandproduct.entity.Category;
+import com.codation.categoryandproduct.entity.Product;
 import com.codation.categoryandproduct.homeservice.HomeService;
 import com.codation.categoryandproduct.repository.HomeRepository;
+import com.codation.categoryandproduct.repository.ProductRepository;
 
 @Service
 public class ServiceImpl implements HomeService {
 
 	@Autowired
 	HomeRepository homeRepository;
+	@Autowired
+	ProductRepository productRepository;
 
 	@Override
 	public String addCategory(Category theCategory) {
@@ -31,17 +35,17 @@ public class ServiceImpl implements HomeService {
 	}
 
 	@Override
-	public String addProduct(Category theProduct) {
+	public String addProduct(Product theProduct) {
 
-		homeRepository.save(theProduct);
+		productRepository.save(theProduct);
 
 		return "Product Added Successfully";
 	}
 
 	@Override
-	public List<Category> getProducts() {
+	public List<Product> getProducts(String cName) {
 
-		return homeRepository.findAll();
+		return productRepository.getAllProduct(cName);
 	}
 
 	@Override

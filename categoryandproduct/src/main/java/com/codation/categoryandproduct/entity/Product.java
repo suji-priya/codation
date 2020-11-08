@@ -1,28 +1,36 @@
 package com.codation.categoryandproduct.entity;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Product {
+public class Product implements Serializable {
 
 	@Id
 	@Column(name = "product_id")
 	private int id;
 
 	@Column(name = "product_Name")
-	private String productdName;
+	private String productName;
 
-	@OneToMany(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "product_foreign")
-	private List<Product> products = new ArrayList();
+	private SubChildCategory subChildCategory;
+
+	
+	public SubChildCategory getSubChildCategory() {
+		return subChildCategory;
+	}
+
+	public void setSubChildCategory(SubChildCategory subChildCategory) {
+		this.subChildCategory = subChildCategory;
+	}
 
 	public Product() {
 		super();
@@ -31,12 +39,12 @@ public class Product {
 	public Product(int id, String productdName) {
 		super();
 		this.id = id;
-		this.productdName = productdName;
+		this.productName = productdName;
 	}
 
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", productdName=" + productdName + "]";
+		return "Product [id=" + id + ", productdName=" + productName + "]";
 	}
 
 	public int getId() {
@@ -47,12 +55,12 @@ public class Product {
 		this.id = id;
 	}
 
-	public String getProductdName() {
-		return productdName;
+	public String getProductName() {
+		return productName;
 	}
 
-	public void setProductdName(String productdName) {
-		this.productdName = productdName;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
 }

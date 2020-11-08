@@ -8,4 +8,6 @@ import com.codation.categoryandproduct.entity.Category;
 @Repository
 public interface HomeRepository extends JpaRepository<Category, Integer> {
 
+	
+	
 }
