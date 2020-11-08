@@ -45,7 +45,7 @@ public class ServiceImpl implements HomeService {
 	@Override
 	public List<Product> getProducts(String cName) {
 
-		return productRepository.getAllProduct(cName);
+		return productRepository.findAllProduct(cName);
 	}
 
 	@Override

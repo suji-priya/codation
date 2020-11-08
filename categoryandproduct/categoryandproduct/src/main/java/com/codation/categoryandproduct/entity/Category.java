@@ -20,7 +20,7 @@ public class Category {
 
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<ChildCategory> childCategory = new ArrayList<ChildCategory>();
-
+    
 	public int getId() {
 		return id;
 	}
@@ -45,15 +45,14 @@ public class Category {
 		this.childCategory = childCategory;
 	}
 
-	public Category(int id, String category_Name, List<ChildCategory> childCategory) {
-		
-		this.id = id;
-		this.category_Name = category_Name;
-		this.childCategory = childCategory;
-	}
-
-	public Category() {
-		super();
-	}
+	/*
+	 * public Category(int id, String category_Name, List<ChildCategory>
+	 * childCategory) {
+	 * 
+	 * this.id = id; this.category_Name = category_Name; this.childCategory =
+	 * childCategory; }
+	 * 
+	 * public Category() { super(); }
+	 */
 
 }

@@ -15,12 +15,12 @@ public class SubChildCategory {
 	@Column(name = "subCategory_Id")
 	private int id;
 
-	private String sub_ChildCategoryName;
+	private String subChildCategoryName;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "sub_ChildCategory")
-
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "subChildCategory")
+    
 	private List<Product> product = new ArrayList<Product>();
-
+    
 	public int getId() {
 		return id;
 	}
@@ -29,12 +29,12 @@ public class SubChildCategory {
 		this.id = id;
 	}
 
-	public String getSub_ChildCategoryName() {
-		return sub_ChildCategoryName;
+	public String getSubChildCategoryName() {
+		return subChildCategoryName;
 	}
 
-	public void setSub_ChildCategoryName(String sub_ChildCategoryName) {
-		this.sub_ChildCategoryName = sub_ChildCategoryName;
+	public void setSubChildCategoryName(String subChildCategoryName) {
+		this.subChildCategoryName = subChildCategoryName;
 	}
 
 	public List<Product> getProduct() {
@@ -45,10 +45,10 @@ public class SubChildCategory {
 		this.product = product;
 	}
 
-	public SubChildCategory(int id, String sub_ChildCategoryName, List<Product> product) {
+	public SubChildCategory(int id, String subChildCategoryName, List<Product> product) {
 		super();
 		this.id = id;
-		this.sub_ChildCategoryName = sub_ChildCategoryName;
+		this.subChildCategoryName = subChildCategoryName;
 		this.product = product;
 	}
 

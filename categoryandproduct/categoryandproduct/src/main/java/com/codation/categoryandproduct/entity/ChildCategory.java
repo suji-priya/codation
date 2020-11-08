@@ -17,11 +17,19 @@ public class ChildCategory {
 	private int id;
 	
 	private String child_CategoryName;
-
+     
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<SubChildCategory> sub_ChildCategory = new ArrayList();
-
+    
 	
+	public String getChild_CategoryName() {
+		return child_CategoryName;
+	}
+
+	public List<SubChildCategory> getSub_ChildCategory() {
+		return sub_ChildCategory;
+	}
+
 	public ChildCategory() {
 		super();
 	}
@@ -42,12 +50,12 @@ public class ChildCategory {
 		this.sub_ChildCategory = subChildCategory;
 	}
 
-	public ChildCategory(int id, String child_CategoryName, List<SubChildCategory> sub_ChildCategory) {
-		super();
-		this.id = id;
-		this.child_CategoryName = child_CategoryName;
-		this.sub_ChildCategory = sub_ChildCategory;
-	}
+	/*
+	 * public ChildCategory(int id, String child_CategoryName,
+	 * List<SubChildCategory> sub_ChildCategory) { super(); this.id = id;
+	 * this.child_CategoryName = child_CategoryName; this.sub_ChildCategory =
+	 * sub_ChildCategory; }
+	 */
 
 	
 	

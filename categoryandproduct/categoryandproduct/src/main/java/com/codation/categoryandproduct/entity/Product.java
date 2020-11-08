@@ -16,8 +16,16 @@ public class Product {
 	@Column(name = "product_Name")
 	private String productName;
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	private SubChildCategory sub_ChildCategory;
+	@ManyToOne(cascade = CascadeType.MERGE)
+	private SubChildCategory subChildCategory;
+   
+	public SubChildCategory getSubChildCategory() {
+		return subChildCategory;
+	}
+
+	public void setSubChildCategory(SubChildCategory subChildCategory) {
+		this.subChildCategory = subChildCategory;
+	}
 
 	public int getId() {
 		return id;
@@ -35,19 +43,13 @@ public class Product {
 		this.productName = productName;
 	}
 
-	public SubChildCategory getSub_ChildCategory() {
-		return sub_ChildCategory;
-	}
+	
 
-	public void setSub_ChildCategory(SubChildCategory sub_ChildCategory) {
-		this.sub_ChildCategory = sub_ChildCategory;
-	}
-
-	public Product(int id, String productName, SubChildCategory sub_ChildCategory) {
+	public Product(int id, String productName, SubChildCategory subChildCategory) {
 		super();
 		this.id = id;
 		this.productName = productName;
-		this.sub_ChildCategory = sub_ChildCategory;
+		this.subChildCategory = subChildCategory;
 	}
 
 	public Product() {

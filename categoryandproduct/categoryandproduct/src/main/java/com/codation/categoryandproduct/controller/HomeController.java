@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.codation.categoryandproduct.entity.Category;
 import com.codation.categoryandproduct.entity.Product;
+import com.codation.categoryandproduct.entity.SubChildCategory;
 import com.codation.categoryandproduct.homeserviceimpl.ServiceImpl;
+import com.codation.categoryandproduct.repository.CategoryRepository;
+import com.codation.categoryandproduct.repository.SubChildCategoryRepository;
 
 @RestController
 @RequestMapping("/shopping")
@@ -23,6 +26,8 @@ public class HomeController {
 
 	@Autowired
 	ServiceImpl serviceImpl;
+	@Autowired
+	SubChildCategoryRepository categoryRepository;
 
 	@PostMapping("/category")
 	public ResponseEntity<String> addCategory(@RequestBody Category theCategory) {
@@ -62,10 +67,11 @@ public class HomeController {
 
 	}
 
-	@GetMapping("/product/{name}")
-	public ResponseEntity<Object> getProducts(@PathVariable("name") String cName) {
+	@GetMapping("/product/{sub_ChildCategoryName}")
+	public ResponseEntity<Object> getProducts(@PathVariable("sub_ChildCategoryName") String cName) {
+		SubChildCategory sc=categoryRepository.findBySubChildCategoryName(cName);
 
-		List<Product> products = serviceImpl.getProducts(cName);
+		List<Product> products = serviceImpl.getProducts(sc.getSubChildCategoryName());
 
 		return new ResponseEntity<Object>(products, HttpStatus.OK);
 
@@ -73,11 +79,10 @@ public class HomeController {
 
 	@PutMapping("/product")
 	public ResponseEntity<String> updateProducts(@RequestBody Product theProduct) {
+		
 
-		String response = serviceImpl.updateProducts(theProduct);
-
-		if (response != null) {
-
+		if (theProduct != null) {
+			String response = serviceImpl.updateProducts(theProduct);
 			return new ResponseEntity<String>(response, HttpStatus.OK);
 		}
 
