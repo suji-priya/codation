@@ -11,6 +11,6 @@ import com.codation.categoryandproduct.entity.Product;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
-	@Query("select p.productName from Product p where p.subChildCategory.name=?1")
+	@Query("select p.productName from Product p where p.sub_ChildCategory.sub_ChildCategoryName=?1")
 	public List<Product> getAllProduct(String name);
 }

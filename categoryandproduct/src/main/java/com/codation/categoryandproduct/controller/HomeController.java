@@ -23,7 +23,7 @@ public class HomeController {
 
 	@Autowired
 	ServiceImpl serviceImpl;
-    
+
 	@PostMapping("/category")
 	public ResponseEntity<String> addCategory(@RequestBody Category theCategory) {
 
@@ -37,7 +37,8 @@ public class HomeController {
 				HttpStatus.BAD_REQUEST);
 
 	}
-    @GetMapping("/category")
+
+	@GetMapping("/category")
 	public ResponseEntity<Object> getCategories() {
 
 		List<Category> categories = serviceImpl.getCategories();
@@ -45,7 +46,8 @@ public class HomeController {
 		return new ResponseEntity<Object>(categories, HttpStatus.OK);
 
 	}
-    @PostMapping("/product")
+
+	@PostMapping("/product")
 	public ResponseEntity<String> addProduct(@RequestBody Product theProduct) {
 
 		if (theProduct != null) {
@@ -59,7 +61,8 @@ public class HomeController {
 		return new ResponseEntity<String>("Product Details are MandatoryIt Cannot Be Empty !", HttpStatus.BAD_REQUEST);
 
 	}
-    @GetMapping("/product/{name}")
+
+	@GetMapping("/product/{name}")
 	public ResponseEntity<Object> getProducts(@PathVariable("name") String cName) {
 
 		List<Product> products = serviceImpl.getProducts(cName);
@@ -67,17 +70,18 @@ public class HomeController {
 		return new ResponseEntity<Object>(products, HttpStatus.OK);
 
 	}
-    @PutMapping("/product")
-	public ResponseEntity<String> updateProducts(@RequestBody Category theCategory) {
 
-		String response = serviceImpl.updateProducts(theCategory);
+	@PutMapping("/product")
+	public ResponseEntity<String> updateProducts(@RequestBody Product theProduct) {
+
+		String response = serviceImpl.updateProducts(theProduct);
 
 		if (response != null) {
 
 			return new ResponseEntity<String>(response, HttpStatus.OK);
 		}
 
-		return new ResponseEntity<String>("theCategory id=" + theCategory.getId() + "  not found", HttpStatus.NOT_FOUND);
+		return new ResponseEntity<String>("theCategory id=" + theProduct.getId() + "  not found", HttpStatus.NOT_FOUND);
 	}
 
 }

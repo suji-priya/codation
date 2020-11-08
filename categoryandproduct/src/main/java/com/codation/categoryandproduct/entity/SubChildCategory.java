@@ -7,32 +7,19 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+
 @Entity
 public class SubChildCategory {
 	@Id
 	@Column(name = "subCategory_Id")
 	private int id;
-    
-	private String name;
-	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy = "subChildCategory")
-	
-	private List<Product> product = new ArrayList();
-	
-    
-	public String getName() {
-		return name;
-	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
+	private String sub_ChildCategoryName;
 
-	public SubChildCategory() {
-		super();
-	}
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "sub_ChildCategory")
+
+	private List<Product> product = new ArrayList<Product>();
 
 	public int getId() {
 		return id;
@@ -40,6 +27,14 @@ public class SubChildCategory {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getSub_ChildCategoryName() {
+		return sub_ChildCategoryName;
+	}
+
+	public void setSub_ChildCategoryName(String sub_ChildCategoryName) {
+		this.sub_ChildCategoryName = sub_ChildCategoryName;
 	}
 
 	public List<Product> getProduct() {
@@ -50,16 +45,15 @@ public class SubChildCategory {
 		this.product = product;
 	}
 
-	@Override
-	public String toString() {
-		return "SubCategory [id=" + id + ", product=" + product + "]";
-	}
-
-	public SubChildCategory(int id, List<Product> product) {
+	public SubChildCategory(int id, String sub_ChildCategoryName, List<Product> product) {
 		super();
 		this.id = id;
+		this.sub_ChildCategoryName = sub_ChildCategoryName;
 		this.product = product;
 	}
 
-	
+	public SubChildCategory() {
+		super();
+	}
+
 }

@@ -11,10 +11,9 @@ public interface HomeService {
 
 	List<Category> getCategories();
 
-	
 	List<Product> getProducts(String cName);
 
-	String updateProducts(Category theCategory);
+	String updateProducts(Product theProduct);
 
 	String addProduct(Product theProduct);
 

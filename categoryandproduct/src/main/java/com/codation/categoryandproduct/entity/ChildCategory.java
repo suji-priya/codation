@@ -7,7 +7,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -16,10 +15,11 @@ public class ChildCategory {
 	@Id
 	@Column(name = "childCategory_Id")
 	private int id;
+	
+	private String child_CategoryName;
 
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="childCategory_foreign")
-	private List<SubChildCategory> subChildCategory = new ArrayList();
+	private List<SubChildCategory> sub_ChildCategory = new ArrayList();
 
 	
 	public ChildCategory() {
@@ -35,12 +35,20 @@ public class ChildCategory {
 	}
 
 	public List<SubChildCategory> getSubChildCategory() {
-		return subChildCategory;
+		return sub_ChildCategory;
 	}
 
 	public void setSubChildCategory(List<SubChildCategory> subChildCategory) {
-		this.subChildCategory = subChildCategory;
+		this.sub_ChildCategory = subChildCategory;
 	}
+
+	public ChildCategory(int id, String child_CategoryName, List<SubChildCategory> sub_ChildCategory) {
+		super();
+		this.id = id;
+		this.child_CategoryName = child_CategoryName;
+		this.sub_ChildCategory = sub_ChildCategory;
+	}
+
 	
 	
     

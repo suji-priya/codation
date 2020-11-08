@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.codation.categoryandproduct.entity.Category;
 
 @Repository
-public interface HomeRepository extends JpaRepository<Category, Integer> {
+public interface CategoryRepository extends JpaRepository<Category, Integer> {
 
 	
 	

@@ -9,21 +9,21 @@ import org.springframework.stereotype.Service;
 import com.codation.categoryandproduct.entity.Category;
 import com.codation.categoryandproduct.entity.Product;
 import com.codation.categoryandproduct.homeservice.HomeService;
-import com.codation.categoryandproduct.repository.HomeRepository;
+import com.codation.categoryandproduct.repository.CategoryRepository;
 import com.codation.categoryandproduct.repository.ProductRepository;
 
 @Service
 public class ServiceImpl implements HomeService {
 
 	@Autowired
-	HomeRepository homeRepository;
+	CategoryRepository categoryRepository;
 	@Autowired
 	ProductRepository productRepository;
 
 	@Override
 	public String addCategory(Category theCategory) {
 
-		homeRepository.save(theCategory);
+		categoryRepository.save(theCategory);
 
 		return "Category Added Successfully";
 	}
@@ -31,7 +31,7 @@ public class ServiceImpl implements HomeService {
 	@Override
 	public List<Category> getCategories() {
 
-		return homeRepository.findAll();
+		return categoryRepository.findAll();
 	}
 
 	@Override
@@ -49,11 +49,12 @@ public class ServiceImpl implements HomeService {
 	}
 
 	@Override
-	public String updateProducts(Category theCategory) {
+	public String updateProducts(Product theProduct) {
 
-		Optional<Category> category = homeRepository.findById(theCategory.getId());
-		if (category.isPresent()) {
-			homeRepository.save(theCategory);
+		Optional<Product> product = productRepository.findById(theProduct.getId());
+		if (product.isPresent()) {
+
+			productRepository.save(theProduct);
 
 			return "Product Updated Successfully !";
 		}
